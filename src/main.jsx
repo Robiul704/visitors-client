@@ -17,11 +17,13 @@ import Authprovider from "./components/Authentication/Authprovider";
 import Details from "./components/Navber/Allblogs/Details";
 import Comment from "./components/Navber/Allblogs/Comment";
 import Update from "./components/Navber/Allblogs/Update";
+import Error from "./components/Home/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element:<Root></Root>,
+    errorElement:<Error></Error>,
     children:[
       {
         path:'/',
