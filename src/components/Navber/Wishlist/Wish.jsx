@@ -1,8 +1,14 @@
+import axios from "axios";
 
 
 const Wish = ({blog}) => {
     const {title,category,shortdescription,longdescription,image,_id}=blog
     console.log(blog)
+
+    const handleremove=(id)=>{
+      axios.delete(`http://localhost:5000/wishlist/${id}`)
+      .then(res=>console.log(res.data))
+    }
     return (
         <div>
             <div className="flex flex-row justify-center">
@@ -17,7 +23,10 @@ const Wish = ({blog}) => {
     </h2>
     <p>{shortdescription}</p>
     <div className="card-actions justify-end">
-     
+    <div className="card-actions justify-end">
+      <button className="btn hover:bg-blue-300 bg-yellow-500 btn-outline">Details</button>
+      <button onClick={()=>handleremove(_id)} className="btn hover:bg-blue-300 text-white bg-red-900 btn-outline">Remove</button>
+    </div>
     </div>
  
   </div>
