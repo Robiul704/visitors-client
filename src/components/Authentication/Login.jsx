@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./Authprovider";
+import { toast } from "react-toastify";
 
 
 const Login = () => {
@@ -10,18 +11,28 @@ const Login = () => {
         const email=e.target.email.value;
         const password=e.target.password.value;
         console.log(email,password)
+        e.target.reset()
         signinuser(email,password)
         .then(result=>{
             console.log(result)
+            toast.error('login successfully', {
+              position: toast.POSITION.TOP_CENTER,
+            });
         })
         .catch(error=>{
             console.log(error)
+            return toast.error('email or password is incorrect', {
+              position: toast.POSITION.TOP_CENTER,
+            });
         })
     }
     const handlegoogle=()=>{
         googlelogin()
         .then(result=>{
             console.log(result)
+            toast.error('login successfully', {
+              position: toast.POSITION.TOP_CENTER,
+            });
         })
         .catch(error=>{
             console.log(error)

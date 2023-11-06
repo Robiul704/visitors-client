@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./Authprovider";
+import { toast } from "react-toastify";
 
 
 const Resister = () => {
@@ -10,12 +11,32 @@ const Resister = () => {
         const email=e.target.email.value;
         const password=e.target.password.value;
         console.log(email,password)
-
+        if(password.length<6){
+          return toast.error('password must be 6 carecter', {
+            position: toast.POSITION.TOP_CENTER,
+          });
+            
+        }else if(!/[A-Z]/.test(password)){
+          return toast.error('must using a capital letter', {
+            position: toast.POSITION.TOP_CENTER,
+          });
+            
+        }else if(!/[!@#$%^&*()_+{}[\]:;<>,.?~\\/-]/.test(password)){
+          return toast.error('must using a special carecter', {
+            position: toast.POSITION.TOP_CENTER,
+          });
+        }
         creatuser(email,password)
         .then(result=>{
             console.log(result)
+            toast.error('login successfully', {
+              position: toast.POSITION.TOP_CENTER,
+            });
         })
         .catch(error=>{
+          toast.error('something went wrong', {
+            position: toast.POSITION.TOP_CENTER,
+          });
             console.log(error)
         })
 
@@ -25,6 +46,9 @@ const Resister = () => {
         googlelogin()
         .then(result=>{
             console.log(result)
+            toast.error('login successfully', {
+              position: toast.POSITION.TOP_CENTER,
+            });
         })
         .catch(error=>{
             console.log(error)

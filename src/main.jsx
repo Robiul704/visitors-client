@@ -18,7 +18,8 @@ import Details from "./components/Navber/Allblogs/Details";
 import Comment from "./components/Navber/Allblogs/Comment";
 import Update from "./components/Navber/Allblogs/Update";
 import Error from "./components/Home/Error";
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -78,5 +79,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <Authprovider>
     <RouterProvider router={router} />
     </Authprovider>
+    <ToastContainer/>
   </React.StrictMode>
 );
