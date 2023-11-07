@@ -9,7 +9,7 @@ import Root from "./Root";
 import Home from "./components/Home/Home";
 import Addblogs from "./components/Navber/Addblogs/Addblogs";
 import Allblogs from "./components/Navber/Allblogs/Allblogs";
-import Featuredblogs from "./components/Navber/Featuredblogs/Featuredblogs";
+
 import Wishlist from "./components/Navber/Wishlist/Wishlist";
 import Login from "./components/Authentication/Login";
 import Resister from "./components/Authentication/Resister";
@@ -21,6 +21,7 @@ import Error from "./components/Home/Error";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Privateroute from "./components/Authentication/Privateroute";
+import Feature from "./components/Home/Feature";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/featuredblogs',
-        element:<Privateroute><Featuredblogs></Featuredblogs></Privateroute>
+        element:<Privateroute><Feature></Feature></Privateroute>
       },
       {
         path:'/wishlist',

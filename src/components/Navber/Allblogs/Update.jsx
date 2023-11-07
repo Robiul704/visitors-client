@@ -16,6 +16,7 @@ const Update = () => {
        const shortdescription=e.target.shortdescription.value
        const longdescription=e.target.longdescription.value
        const time=new Date()
+       const email =
        console.log({title,image,category,shortdescription,longdescription,time})
        const blogs={title,image,category,shortdescription,longdescription,time}
        e.target.reset()
@@ -38,11 +39,7 @@ const Update = () => {
     return (
         <div style={{backgroundImage: 'url(https://i.ibb.co/PtPwTGR/istockphoto-1153432551-170667a.jpg)'}} className="hero min-h-screen my-10 py-10">
 
-            {/* //Add Blog Page:
-1. Create a form which will take blog information like title,image url,category,short
-description, long description and a submit button.
-2. category must be a dropdown element (use <select></select> tag) */}
-
+      
           <Form onSubmit={handleupdate}>
           <div className="grid lg:grid-cols-2 gap-5">
            <div>
