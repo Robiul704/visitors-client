@@ -10,6 +10,8 @@ const Resister = () => {
         e.preventDefault()
         const email=e.target.email.value;
         const password=e.target.password.value;
+        const photoURL=e.target.photoURL.value;
+        const name=e.target.name.value
         console.log(email,password)
         if(password.length<6){
           return toast.error('password must be 6 carecter', {
@@ -31,7 +33,7 @@ const Resister = () => {
             position: toast.POSITION.TOP_CENTER,
           });
         }
-        creatuser(email,password)
+        creatuser(email,password,photoURL,name)
         .then(result=>{
             console.log(result)
             toast.error('login successfully', {
@@ -71,9 +73,21 @@ const Resister = () => {
       <form onSubmit={handleresister} className="card-body">
         <div className="form-control">
           <label className="label">
+            <span className="label-text">Name</span>
+          </label>
+          <input type="text" name="name" placeholder="Name" className="input input-bordered" required />
+        </div>
+        <div className="form-control">
+          <label className="label">
             <span className="label-text">Email</span>
           </label>
           <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Photo URL</span>
+          </label>
+          <input type="text" name="photoURL" placeholder="image" className="input input-bordered" required />
         </div>
         <div className="form-control">
           <label className="label">

@@ -1,28 +1,41 @@
 
 import axios from "axios";
+import {AiOutlineComment } from 'react-icons/ai';
 
 import { Form, NavLink, useLoaderData } from "react-router-dom";
 import Comment from "./Comment";
+import { useContext } from "react";
+import { AuthContext } from "../../Authentication/Authprovider";
 
 
 const Details = () => {
 
-    
+    const {user}=useContext(AuthContext)
     const blog=useLoaderData()
     console.log(blog)
     // const [comments,setcomments]=useState()
     // console.log(comments)
 
-
+const id=blog._id
     const handlecomments=(e)=>{
         e.preventDefault()
         const comment=e.target.comment.value;
-        const comments={comment}
+        const email=user.email
+        const image=user.photoURL
+        const title=blog.title
+        const id=blog._id
+        console.log(title)
+        e.target.reset()
+        const comments={comment,email,image,title,id}
+        
+
         axios.post(`http://localhost:5000/comments`,comments)
         .then(res=>console.log(res.data))
+
+       
     }
    
-
+   
    
       
     
@@ -46,20 +59,27 @@ const Details = () => {
  <div className="card-actions justify-end">
   
  </div>
- <NavLink to={`/update/${_id}`}><button className="py-3 px-5 bg-red-300">Update</button></NavLink>
+ {
+    user.email===blog.email? <p></p>: <NavLink to={`/update/${_id}`}><button className="py-3 px-5 bg-red-300">Update</button></NavLink>
+ }
+
 </div>
 
 {/* {
     comments.map(comment=><Comment comment={comment} key={comment._id}></Comment>)
 } */}
-<Comment></Comment>
+<Comment id={_id}></Comment>
 
-<Form onSubmit={handlecomments}>
-<div className="bg-sky-300 py-5 my-5">
-<textarea name="comment" className="textarea textarea-info" placeholder="Comments"></textarea>
-<button  className="py-3 px-5 bg-red-300">Comment</button>
+{
+    user.email===blog.email? <div>
+        <h1 className="text-3xl font-bold text-white pb-5">Can not comment on own blog!!</h1>
+    </div>:<Form  onSubmit={handlecomments}>
+<div className=" w-2/3 grid lg:grid-cols-2 items-center py-5 my-5">
+<textarea name="comment" className="textarea py-5  flex items-center textarea-info" placeholder="Comments"></textarea>
+<button  className=" bg-red-300  text-5xl mr-76 w-1/4 inline btn btn-outline hover:bg-yellow-300 hover:text-black"><AiOutlineComment/></button>
 </div>
 </Form>
+}
 
 </div>
      </div>

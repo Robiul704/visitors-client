@@ -5,30 +5,30 @@ import auth from "./firebase.config";
 export const AuthContext=createContext()
 const Authprovider = ({children}) => {
     const [user,setuser]=useState()
-    const [loading,setloading]=useState(true)
+    const [loading,setLoading]=useState(true)
 
     const creatuser=(email,password)=>{
-        loading(true)
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const signinuser=(email,password)=>{
-        loading(true)
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
     const provider = new GoogleAuthProvider();
     const googlelogin=()=>{
-        setloading(true)
+        setLoading(true)
         return signInWithPopup(auth, provider)
     }
 
     const signout=()=>{
-        loading(true)
+        setLoading(true)
         return signOut(auth)
     }
     useEffect(()=>{
         const unsubscribe=onAuthStateChanged(auth,(currentuser)=>{
             setuser(currentuser)
-            setloading(false)
+            setLoading(false)
         })
         return()=>{
             return unsubscribe()

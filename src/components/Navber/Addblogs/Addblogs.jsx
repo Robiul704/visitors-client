@@ -1,8 +1,11 @@
 import axios from "axios";
+import { useContext } from "react";
 import { Form } from "react-router-dom";
+import { AuthContext } from "../../Authentication/Authprovider";
 
 
 const Addblogs = () => {
+const {user}=useContext(AuthContext)
 
 
     const handleaddblog=(e)=>{
@@ -12,9 +15,10 @@ const Addblogs = () => {
      const category=e.target.category.value
      const shortdescription=e.target.shortdescription.value
      const longdescription=e.target.longdescription.value
+     const email=user.email
      const time=new Date()
      console.log({title,image,category,shortdescription,longdescription,time})
-     const blogs={title,image,category,shortdescription,longdescription,time}
+     const blogs={title,image,email,category,shortdescription,longdescription,time}
      e.target.reset()
      axios.post('http://localhost:5000/blogs',blogs)
      .then(res=>{

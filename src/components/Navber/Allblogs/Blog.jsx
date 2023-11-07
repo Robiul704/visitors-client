@@ -18,6 +18,8 @@ const Blog = ({blog}) => {
         
     }
 
+   
+
     return (
         <div className="flex flex-row justify-center">
            <div className="card  bg-base-100 shadow-xl">
