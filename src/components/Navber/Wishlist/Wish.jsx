@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 
 const Wish = ({blog}) => {
@@ -7,7 +8,12 @@ const Wish = ({blog}) => {
 
     const handleremove=(id)=>{
       axios.delete(`http://localhost:5000/wishlist/${id}`)
-      .then(res=>console.log(res.data))
+      .then(res=>{
+        console.log(res.data)
+        toast.error('Remove successfully', {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      })
     }
     return (
         <div>

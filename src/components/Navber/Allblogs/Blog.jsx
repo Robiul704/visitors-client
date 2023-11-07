@@ -1,5 +1,6 @@
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 const Blog = ({blog}) => {
@@ -8,7 +9,12 @@ const Blog = ({blog}) => {
     const adds={title,category,shortdescription,longdescription,image,time}
     const handlewishlist=()=>{
         axios.post(`http://localhost:5000/wishlist`,adds)
-        .then(res=>console.log(res.data))
+        .then(res=>{
+          toast.error('wishlist added successfully', {
+            position: toast.POSITION.TOP_CENTER,
+          });
+          console.log(res.data)
+        })
         
     }
 

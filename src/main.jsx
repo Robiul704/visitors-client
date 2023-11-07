@@ -20,6 +20,7 @@ import Update from "./components/Navber/Allblogs/Update";
 import Error from "./components/Home/Error";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Privateroute from "./components/Authentication/Privateroute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,11 +42,11 @@ const router = createBrowserRouter([
       },
       {
         path:'/featuredblogs',
-        element:<Featuredblogs></Featuredblogs>
+        element:<Privateroute><Featuredblogs></Featuredblogs></Privateroute>
       },
       {
         path:'/wishlist',
-        element:<Wishlist></Wishlist>,
+        element:<Privateroute><Wishlist></Wishlist></Privateroute>,
         loader:()=>fetch('http://localhost:5000/wishlist')
       },
       {
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/details/:id',
-        element:<Details></Details>,
+        element:<Privateroute><Details></Details></Privateroute>,
         loader:({params})=>fetch(`http://localhost:5000/blogs/${params.id}`)
       },
       {
@@ -67,7 +68,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/update/:id',
-        element:<Update></Update>,
+        element:<Privateroute><Update></Update></Privateroute>,
         loader:({params})=>fetch(`http://localhost:5000/blogs/${params.id}`)
       }
     ]

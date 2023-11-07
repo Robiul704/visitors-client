@@ -22,7 +22,12 @@ const Resister = () => {
           });
             
         }else if(!/[!@#$%^&*()_+{}[\]:;<>,.?~\\/-]/.test(password)){
-          return toast.error('must using a special carecter', {
+          return toast.error('must using a special carecter ', {
+            position: toast.POSITION.TOP_CENTER,
+          });
+        }
+        else if(!/[a-zA-Z-/]/.test(password)){
+          return toast.error('must using a  numeric carecter', {
             position: toast.POSITION.TOP_CENTER,
           });
         }
