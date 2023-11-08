@@ -29,7 +29,7 @@ const Wish = ({blog}) => {
 </h2>
 <p>{shortdescription}</p>
 <div className="card-actions justify-end">
-<NavLink to={`/details/${_id}`}><button className="btn btn-outline bg-green-200">Details</button></NavLink>
+<NavLink to={`/details/${_id}`}><button className="btn btn-outline bg-green-300">Details</button></NavLink>
 <button onClick={()=>handleremove(_id)} className="btn hover:bg-blue-300 text-white bg-red-900 btn-outline">Remove</button>
 </div>
 </div>
