@@ -8,7 +8,7 @@ const Blog = ({blog}) => {
     const time=new Date()
     const adds={title,category,shortdescription,longdescription,image,time}
     const handlewishlist=()=>{
-        axios.post(`http://localhost:5000/wishlist`,adds)
+        axios.post(`https://blog-webside-serber-side.vercel.app/wishlist`,adds)
         .then(res=>{
           toast.error('wishlist added successfully', {
             position: toast.POSITION.TOP_CENTER,
@@ -21,7 +21,7 @@ const Blog = ({blog}) => {
    
 
     return (
-        <div className="flex flex-row justify-center">
+        <div className="flex flex-row justify-center px-5">
            <div className="card  bg-base-100 shadow-xl">
   <figure><img className="h-96" src={image} alt="Shoes" /></figure>
   <div className="card-body">

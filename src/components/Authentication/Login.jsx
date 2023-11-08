@@ -18,7 +18,7 @@ const Login = () => {
         .then(result=>{
             console.log(result)
             navigate(location.state? location.state : '/')
-            toast.error('login successfully', {
+            toast.success('login successfully', {
               position: toast.POSITION.TOP_CENTER,
             });
         })
@@ -34,7 +34,7 @@ const Login = () => {
         .then(result=>{
           navigate(location.state? location.state : '/')
             console.log(result)
-            toast.error('login successfully', {
+            toast.success('login successfully', {
               position: toast.POSITION.TOP_CENTER,
             });
         })

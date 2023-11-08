@@ -27,8 +27,8 @@ const Update = () => {
        console.log({title,image,category,shortdescription,longdescription,time})
        const blogs={title,email,photoURL,image,category,shortdescription,longdescription,time}
        e.target.reset()
-       
-      axios.put(`http://localhost:5000/blogs/${_id}`,blogs)
+
+      axios.put(`https://blog-webside-serber-side.vercel.app/${_id}`,blogs)
       .then(res=>console.log(res.data))
         
     }

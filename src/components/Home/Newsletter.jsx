@@ -9,9 +9,9 @@ const Newsletter = () => {
     const handlesearch=(e)=>{
         e.preventDefault()
         e.target.reset()
-        const email=e.target.email.value
+       
         
-        toast('Thank you for subscribing to our newsletter', {
+        toast.success('Thank you for subscribing to our newsletter', {
             position: toast.POSITION.TOP_CENTER,
           });
         

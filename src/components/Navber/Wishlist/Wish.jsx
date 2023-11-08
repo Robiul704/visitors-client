@@ -8,10 +8,10 @@ const Wish = ({blog}) => {
     console.log(blog)
 
     const handleremove=(id)=>{
-      axios.delete(`http://localhost:5000/wishlist/${id}`)
+      axios.delete(`https://blog-webside-serber-side.vercel.app/wishlist/${id}`)
       .then(res=>{
         console.log(res.data)
-        toast.error('Remove successfully', {
+        toast.success('Remove successfully', {
           position: toast.POSITION.TOP_CENTER,
         });
       })

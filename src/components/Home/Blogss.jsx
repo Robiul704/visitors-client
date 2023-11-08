@@ -8,7 +8,7 @@ const Blogss = ({blog}) => {
     const time=new Date()
     const adds={title,category,shortdescription,longdescription,image,time}
     const handlewishlist=()=>{
-        axios.post(`http://localhost:5000/wishlist`,adds)
+        axios.post(`https://blog-webside-serber-side.vercel.app/wishlist`,adds)
         .then(res=>{
           toast.error('wishlist added successfully', {
             position: toast.POSITION.TOP_CENTER,

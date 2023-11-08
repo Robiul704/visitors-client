@@ -9,35 +9,20 @@ const Comment = ({id}) => {
   console.log(id)
  
 
-  axios.get(`http://localhost:5000/comments/${id}`)
+  axios.get(`https://blog-webside-serber-side.vercel.app/comments/${id}`)
   .then(res=>{
       console.log(res.data)
       setcomments(res.data)
   })
 
 
-// useEffect(()=>{
-//     const filter=comments.find(com=>com.id===id)
-//     console.log(filter)
-//     if(filter){
-//         setcomment(filter)
-//     }
-// },[])
 
 
 
 
   
 
-    // useEffect(()=>{
-    //     fetch('http://localhost:5000/comments')
-    //     .then(res=>res.json())
-    //     .then(data=>{
-    //         setcomments(data)
-    //         console.log(data)
-    //     })
-    // },[])
-   
+    
     return (
         <div>
            <div className="bg-white my-5 py-10">
@@ -45,8 +30,12 @@ const Comment = ({id}) => {
            {
             comments.map(blog=><div key={blog._id}>
                 <div className="border-black my-5">
-                    <img className="h-10 w-10 inline rounded-full" src={blog.image} alt="" />
-                    <h1 className="text-xl inline ml-3">{blog.comment}</h1>
+                   <div className="flex justify-start items-center gap-3">
+                   <img className="h-10 w-10 inline rounded-full" src={blog.image} alt="" />
+                   <h1>{blog.displayName}</h1>
+                   <h1 className="text-xl inline ml-3">{blog.comment}</h1>
+                   </div>
+                    
                 </div>
             </div>)
            }

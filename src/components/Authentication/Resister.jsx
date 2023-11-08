@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./Authprovider";
 import { toast } from "react-toastify";
-import { Result } from "postcss";
+
 
 
 const Resister = () => {
@@ -39,7 +39,7 @@ const Resister = () => {
           const user=result.user
          handleProfile(displayName,image)
             console.log(user)
-            toast.error('login successfully', {
+            toast.success('login successfully', {
               position: toast.POSITION.TOP_CENTER,
             });
         })
@@ -66,7 +66,7 @@ const Resister = () => {
         googlelogin()
         .then(result=>{
             console.log(result)
-            toast.error('login successfully', {
+            toast.success('login successfully', {
               position: toast.POSITION.TOP_CENTER,
             });
         })

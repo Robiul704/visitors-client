@@ -5,7 +5,7 @@ const Resentblogs = () => {
     const [blogs,setblogs]=useState([])
     console.log(blogs)
     useEffect(() => {
-        axios.get('http://localhost:5000/blogs')
+        axios.get('https://blog-webside-serber-side.vercel.app/blogs')
           .then(response => {
             const sortedPosts = response.data.sort((a, b) => new Date(b.time) - new Date(a.time));
             const posts=sortedPosts.slice(0,6)
@@ -18,7 +18,7 @@ const Resentblogs = () => {
     return (
         <div>
              <h1 className="text-5xl font-bold text-center my-5 pt-5">Resent Blogs</h1>
-           <div className="grid grid-cols-2 gap-10 my-10 justify-center">
+           <div className="grid px-5 grid-cols-2 gap-10 my-10 justify-center">
            
           {
             blogs.map(blog=><Blogss key={blog._id} blog={blog}></Blogss>)

@@ -1,9 +1,10 @@
 
 const Seemore = () => {
     return (
-        <div className="mb-5 bg-green-200 pb-7">
-            <p>
-                <h1 className="text-5xl font-bold text-center my-10  py-5 bg-blue-300 ">Best blogging platforms FAQs</h1>
+        <div className="mb-5 bg-green-200  pb-7">
+             <h1 className="text-5xl font-bold text-center my-10  py-5 bg-blue-300 ">Best blogging platforms FAQs</h1>
+            <p className="px-10">
+               
 <h1 className="text-2xl font-bold">How to choose the best blogging platform</h1>
 While all platforms slightly vary in terms of features, the best blogging platforms should cover all core features including an easy-to-use content editor, tons of themes and templates, some search engine optimization SEO tools (or an ability to install third-party ones), and an ample app store with extensions or integrations with third-party tools. 
 

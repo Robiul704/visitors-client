@@ -37,7 +37,7 @@ const Allblogs = () => {
    }
     return (
         <div >
-            <div className="my-10 text-center bg-lime-100 py-5">
+            <div className="my-10 text-center bg-lime-100 py-5 px-5">
 
                 <Form onSubmit={handlefilter} className="my-5">
                 <select name="select" className="select select-primary w-full max-w-xs">
@@ -51,12 +51,12 @@ const Allblogs = () => {
             
          <Form onSubmit={habndlesearch}>
          
-         <input name="title" className=" bg-amber-300 py-3 px-44 rounded-l-xl" type="text" placeholder="search by title " />
+         <input name="title" className=" bg-amber-300 py-3 px-10 rounded-l-xl" type="text" placeholder="search by title " />
             <button className=" px-4 rounded-r-xl py-3 bg-blue-500">Search</button>
          </Form>
         </div>
            
-          <div className="grid grid-cols-2 gap-10 my-10 justify-center">
+          <div className="grid lg:grid-cols-2 gap-10 my-10 justify-center">
           
           {
             blogs.map(blog=><Blog key={blog._id} blog={blog}></Blog>)

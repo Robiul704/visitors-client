@@ -16,11 +16,12 @@ const {user}=useContext(AuthContext)
      const shortdescription=e.target.shortdescription.value
      const longdescription=e.target.longdescription.value
      const email=user.email
+     const photoURL=user.photoURL
      const time=new Date()
      console.log({title,image,category,shortdescription,longdescription,time})
-     const blogs={title,image,email,category,shortdescription,longdescription,time}
+     const blogs={title,image,photoURL,email,category,shortdescription,longdescription,time}
      e.target.reset()
-     axios.post('http://localhost:5000/blogs',blogs)
+     axios.post('https://blog-webside-serber-side.vercel.app/blogs',blogs)
      .then(res=>{
         console.log(res.data)
      })

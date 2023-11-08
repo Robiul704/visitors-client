@@ -39,7 +39,7 @@ const router = createBrowserRouter([
       {
         path:'/allblogs',
         element:<Allblogs></Allblogs>,
-        loader:()=>fetch(`http://localhost:5000/blogs`)
+        loader:()=>fetch(`https://blog-webside-serber-side.vercel.app/blogs`)
       },
       {
         path:'/featuredblogs',
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       {
         path:'/wishlist',
         element:<Privateroute><Wishlist></Wishlist></Privateroute>,
-        loader:()=>fetch('http://localhost:5000/wishlist')
+        loader:()=>fetch('https://blog-webside-serber-side.vercel.app/wishlist')
       },
       {
         path:'/login',
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
       {
         path:'/details/:id',
         element:<Privateroute><Details></Details></Privateroute>,
-        loader:({params})=>fetch(`http://localhost:5000/blogs/${params.id}`)
+        loader:({params})=>fetch(`https://blog-webside-serber-side.vercel.app/blogs/${params.id}`)
       },
       {
         path:'/comments',
@@ -70,7 +70,7 @@ const router = createBrowserRouter([
       {
         path:'/update/:id',
         element:<Privateroute><Update></Update></Privateroute>,
-        loader:({params})=>fetch(`http://localhost:5000/blogs/${params.id}`)
+        loader:({params})=>fetch(`https://blog-webside-serber-side.vercel.app/${params.id}`)
       }
     ]
   },

@@ -13,10 +13,8 @@ const Details = () => {
     const {user}=useContext(AuthContext)
     const blog=useLoaderData()
     console.log(blog)
-    // const [comments,setcomments]=useState()
-    // console.log(comments)
 
-const id=blog._id
+
     const handlecomments=(e)=>{
         e.preventDefault()
         const comment=e.target.comment.value;
@@ -24,17 +22,19 @@ const id=blog._id
         const image=user.photoURL
         const title=blog.title
         const id=blog._id
+        const displayName=user.displayName
         console.log(title)
         e.target.reset()
-        const comments={comment,email,image,title,id}
+        const comments={comment,email,image,title,id,displayName}
         
 
-        axios.post(`http://localhost:5000/comments`,comments)
+        axios.post(`https://blog-webside-serber-side.vercel.app/comments`,comments)
         .then(res=>console.log(res.data))
 
        
     }
     const {title,category,shortdescription,longdescription,image,_id}=blog
+
     return (
         <div className="flex flex-row justify-center">
         <div className="  bg-orange-500 shadow-xl">
