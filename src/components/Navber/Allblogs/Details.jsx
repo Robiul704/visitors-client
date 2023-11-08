@@ -34,13 +34,6 @@ const id=blog._id
 
        
     }
-   
-   
-   
-      
-    
-    
-   
     const {title,category,shortdescription,longdescription,image,_id}=blog
     return (
         <div className="flex flex-row justify-center">
