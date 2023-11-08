@@ -65,9 +65,7 @@ const id=blog._id
 
 </div>
 
-{/* {
-    comments.map(comment=><Comment comment={comment} key={comment._id}></Comment>)
-} */}
+
 <Comment id={_id}></Comment>
 
 {
