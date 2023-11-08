@@ -1,8 +1,9 @@
-# React + Vite
+# visiting country webside
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+* This webside features discribe here
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- my webside have a navber that show you in the top of the webside.
+- This webside show you to the main main visiting place.
+- If you want to know any kinds of place sports and natural space you click the details button
+- this webside provide you to the best place of doccument that you want
+- this webside have a firebase authentication login  and signup  page that you using first to best experiance.

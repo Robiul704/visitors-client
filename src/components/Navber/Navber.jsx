@@ -62,7 +62,7 @@ const handlelogout=()=>{
     {
         user? <div className="flex gap-4 justify-center items-center">
             <img className="h-7 w-6 rounded-full" src={user?.photoURL} alt="" />
-            <h1 >{user.email}</h1>
+            <h1 >{user.displayName}</h1>
             <button  onClick={handlelogout} className="btn btn-outline hover:bg-blue-400 bg-yellow-300">LogOut</button>
         </div> :  <NavLink to='/login'><button className="btn btn-outline bg-amber-300 hover:bg-blue-300">login</button></NavLink>
     }

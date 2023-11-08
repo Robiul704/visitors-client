@@ -1,12 +1,13 @@
 import { Form, useLoaderData } from "react-router-dom";
 import Blog from "./Blog";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Authentication/Authprovider";
 
 
 const Allblogs = () => {
     const datas=useLoaderData()
     const [blogs,setblogs]=useState(datas)
-
+    const {loading}=useContext(AuthContext)
 
 
    const habndlesearch=(e)=>{
@@ -31,7 +32,9 @@ const Allblogs = () => {
         setblogs(filter)
         }
    }
-   
+   if(loading){
+    return <p>loading</p>
+   }
     return (
         <div >
             <div className="my-10 text-center bg-lime-100 py-5">

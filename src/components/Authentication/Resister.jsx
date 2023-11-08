@@ -2,16 +2,17 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "./Authprovider";
 import { toast } from "react-toastify";
+import { Result } from "postcss";
 
 
 const Resister = () => {
-    const {creatuser,googlelogin}=useContext(AuthContext)
+    const {creatuser,googlelogin,updateuser}=useContext(AuthContext)
     const handleresister=(e)=>{
         e.preventDefault()
         const email=e.target.email.value;
         const password=e.target.password.value;
-        const photoURL=e.target.photoURL.value;
-        const name=e.target.name.value
+        const image=e.target.photoURL.value;
+        const displayName=e.target.name.value;
         console.log(email,password)
         if(password.length<6){
           return toast.error('password must be 6 carecter', {
@@ -33,9 +34,11 @@ const Resister = () => {
             position: toast.POSITION.TOP_CENTER,
           });
         }
-        creatuser(email,password,photoURL,name)
+        creatuser(email,password)
         .then(result=>{
-            console.log(result)
+          const user=result.user
+         handleProfile(displayName,image)
+            console.log(user)
             toast.error('login successfully', {
               position: toast.POSITION.TOP_CENTER,
             });
@@ -45,10 +48,20 @@ const Resister = () => {
             position: toast.POSITION.TOP_CENTER,
           });
             console.log(error)
-        })
-
-       
+        })   
     }
+    const handleProfile=(displayName,image)=>{
+      const userInfo={
+        displayName,
+        photoURL:image
+      }
+      updateuser(userInfo)
+      .then(()=>{})
+      .catch(err=>{
+        console.error(err)
+      })
+    }
+
     const handlegoogle=()=>{
         googlelogin()
         .then(result=>{

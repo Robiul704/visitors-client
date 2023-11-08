@@ -1,9 +1,14 @@
 
+import { useContext } from "react";
 import { Form, useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../Authentication/Authprovider";
+import axios from "axios";
 
 
 const Update = () => {
     const blog=useLoaderData()
+
+    const {user}=useContext(AuthContext)
     console.log(blog)
     const {title,category,shortdescription,longdescription,image,_id}=blog
 
@@ -16,25 +21,16 @@ const Update = () => {
        const shortdescription=e.target.shortdescription.value
        const longdescription=e.target.longdescription.value
        const time=new Date()
-       const email =
+       const email =user.email
+       const photoURL=user.photoURL
+       console.log(email)
        console.log({title,image,category,shortdescription,longdescription,time})
-       const blogs={title,image,category,shortdescription,longdescription,time}
+       const blogs={title,email,photoURL,image,category,shortdescription,longdescription,time}
        e.target.reset()
-       fetch(`http://localhost:5000/blogs/${_id}`,{
-            method:'PUT',
-            headers:{
-                "content-type":"application/json"
-            },
-            body:JSON.stringify(blogs)
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data)
-            // toast.error('update successfully', {
-            //   position: toast.POSITION.TOP_CENTER,
-            // });
-        })
-
+       
+      axios.put(`http://localhost:5000/blogs/${_id}`,blogs)
+      .then(res=>console.log(res.data))
+        
     }
     return (
         <div style={{backgroundImage: 'url(https://i.ibb.co/PtPwTGR/istockphoto-1153432551-170667a.jpg)'}} className="hero min-h-screen my-10 py-10">
