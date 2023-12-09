@@ -7,3 +7,5 @@
 - If you want to know any kinds of place sports and natural space you click the details button
 - this webside provide you to the best place of doccument that you want
 - this webside have a firebase authentication login  and signup  page that you using first to best experiance.
+
+# Technology: React JS, React router Dom, Tailwind, Firebase, NodeJS, Vercel, MongoDB.
